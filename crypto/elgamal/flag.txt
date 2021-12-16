@@ -1,1 +1,0 @@
-flag{oopsie_something_actually_was_there}
