@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block title %}This is main page{% endblock %}
+
+{% block content %}
+  {{ super() }}
+  <div class="container">
+      {% if current_user.is_authenticated %}
+          <p>Welcome, {{current_user.email}}
+          <p>Message from admin@nti-contest.ru
+          <p>Welcome, dear friend! Here is your sign: 4DM1N_L0v3S_Y0U_V3RY_MUCH,4LL_TH3_B3St</p>
+      {% else %}
+          <p>Welcome. Admin leaves signs in each profile</p>
+      {% endif %}
+  </div>
+{% endblock %}

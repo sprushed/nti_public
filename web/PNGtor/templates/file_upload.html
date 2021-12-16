@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Upload files</title>
+  <link rel="stylesheet" href="css/bulma.min.css">
+  <script defer src="js/all.js"></script>
+</head>
+
+<body>
+  <section class="hero is-info is-fullheight has-background-grey-darker">
+    <div class="hero-body">
+      <div class="container">
+        <div class="columns is-centered">
+          <div class="column is-half">
+            <h1 class="title">PNGtor</h1>
+            {% for err in errors %}
+              <ul>
+                <li class="label has-text-danger">
+                  {{ err }}
+                </li>
+              </ul>
+
+            {% endfor %}
+            {% if png %}
+              <h1>Here is your PNG<h1>
+              </br>
+              <img src="data:image/png;base64,{{png}}"/>
+            {% else %}
+              <h1>Convert pictures to png<h1>
+              </br>
+              <form method="POST" enctype=multipart/form-data>
+                <div class="field">
+                  <input class="input" type="file" name="file">
+                </div>
+                <div class="field">
+                  <p class="control">
+                    <button type="submit" class="button is-primary">
+                      Upload
+                    </button>
+                  </p>
+                </div>
+              </form>
+            {% endif %}
+            <br/>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</body>
+
+</html>

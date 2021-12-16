@@ -1,0 +1,31 @@
+---
+log:
+  level: info
+
+ssh:
+  hostkeys:
+    - /var/secrets/ssh_host_rsa_key
+
+backend: docker
+
+auth:
+  url: "http://authconfig:6823"
+configserver:
+  url: "http://authconfig:6823/config"
+docker:
+  connection:
+    host: unix:///var/run/docker.sock
+  execution:
+    imagePullPolicy: Never
+    host:
+      resources:
+        cpuperiod: 10000
+        cpuquota: 1000
+        memoryswap: 52428800
+        memoryswappiness: 50
+        memory: 52428800
+        pidslimit: 100
+      tmpfs:
+        /tmp: rw,noexec,nosuid,size=65536k,uid=1000,gid=1000
+        /run: rw,noexec,nosuid,size=65536k,uid=1000,gid=1000
+        /var: rw,noexec,nosuid,size=65536k,uid=1000,gid=1000

@@ -1,0 +1,38 @@
+version: "3.2"
+services:
+
+  mongodb:
+    image: mongo
+    restart: always
+    ports:
+        - "127.0.0.1:27017:27017"
+    deploy:
+      resources:
+        limits:
+          memory: 4G
+
+  mongo-initdb:
+    build:
+      context: .
+      dockerfile: Dockerfile-mongo
+    depends_on:
+      - mongodb
+    links:
+      - mongodb
+
+  node:
+    build:
+      context: .
+      dockerfile: Dockerfile-node
+    image: webserver
+    container_name: webserver
+    ports:
+      - "3000:3000"
+    depends_on:
+      - mongodb
+    links:
+        - mongodb
+    deploy:
+      resources:
+        limits:
+          memory: 3G

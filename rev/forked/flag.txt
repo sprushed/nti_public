@@ -1,0 +1,1 @@
+flag{it_is_our_fork_bomb}

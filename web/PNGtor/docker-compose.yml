@@ -1,0 +1,11 @@
+version: "3.9"
+services:
+  web:
+    build: .
+    restart: always
+    ports:
+      - 8003:5000
+    deploy:
+      resources:
+        limits:
+          memory: 4G

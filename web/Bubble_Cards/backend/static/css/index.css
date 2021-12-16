@@ -1,0 +1,140 @@
+* {
+  margin:0;
+  padding:0;
+  font:15px 'Open Sans';
+   -webkit-font-smoothing: antialiased;
+           font-smoothing: antialiased;
+}
+
+body {
+  background-image: url("../images/bubble_card.jpg");
+
+  /* Full height */
+  height: 80vh;
+
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+form {
+  position:relative;
+  width:450px;
+  height:300px;
+  margin:150px auto;
+  text-align:center;
+  background:#ecf0f1;
+  padding:40px;
+  border-radius: 6px;
+}
+
+h4 {
+  font:2em 'Open Sans';
+  font-weight:600;
+  margin-bottom:25px;
+  color:#bd37b8;
+  text-shadow:1px 1px 0px white;
+}
+
+h3 {
+  font:2em 'Open Sans';
+  font-weight:400;
+  margin-top:60px;
+  margin-bottom:25px;
+  color:#bd37b8;
+  text-shadow:1px 1px 0px white;
+}
+
+input {
+  display:block;
+  width:425px;
+  padding:14px;
+  -webkit-border-radius:6px;
+     -moz-border-radius:6px;
+          border-radius:6px;
+  border:0;
+  margin-bottom:10px;
+  color:#7f8c8d;
+  outline:none;
+  font-weight:600;
+}
+
+input:focus {
+  background:#fafafa;
+}
+
+::-webkit-input-placeholder {
+  color: #95a5a6;
+  font-weight:300;
+}
+
+:-moz-placeholder {
+  color: #95a5a6;
+  font-weight:300;
+}
+
+::-moz-placeholder {
+  color: #95a5a6;
+  font-weight:300;
+}
+
+:-ms-input-placeholder {
+  color: #95a5a6;
+  font-weight:300;
+}
+
+li {
+  position:absolute;
+  right:40px;
+  bottom:62px;
+  list-style:none;
+}
+
+a, a:visited {
+  text-decoration:none;
+  color:#7f8c8d;
+  font-weight:400;
+  text-shadow:1px 1px 0px white;
+  -webkit-transition: all .3s ease-in-out;
+     -moz-transition: all .3s ease-in-out;
+          transition: all .3s ease-in-out;
+}
+
+a:hover {
+  color:#acacac;
+  -webkit-transition: all .3s ease-in-out;
+     -moz-transition: all .3s ease-in-out;
+          transition: all .3s ease-in-out;
+}
+
+.sub {
+  position:relative;
+  float:right;
+  width:150px;
+  margin-top:10px;
+  background:#3498db;
+  color:#fff;
+  font-weight:400;
+  text-shadow:1px 1px 0px #2d7baf;
+  box-shadow:0px 3px 0px #2d7baf;
+  -webkit-transition: all .3s ease-in-out;
+     -moz-transition: all .3s ease-in-out;
+          transition: all .3s ease-in-out;
+}
+
+.sub:hover {
+  background:#38a4ec;
+  cursor:pointer;
+  -webkit-transition: all .3s ease-in-out;
+     -moz-transition: all .3s ease-in-out;
+          transition: all .3s ease-in-out;
+}
+
+.sub:active {
+  box-shadow:none;
+  top:4px;
+  -webkit-transition: all .3s ease-in-out;
+     -moz-transition: all .3s ease-in-out;
+          transition: all .3s ease-in-out;
+}

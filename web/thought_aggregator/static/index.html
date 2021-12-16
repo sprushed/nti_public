@@ -1,0 +1,77 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=iso-8859-1"/>
+    <link rel="stylesheet" type="text/css" href="default.css" media="screen" />
+    <title>Meaningful search</title>
+  </head>
+
+  <body style="text-align:center; ">
+    <div class="container" style="margin-left:auto; margin-right:auto;">
+    <div class="header2">
+      <center><br/>Meaningful search</center>
+    </div>
+
+    <div class="stripes"><span></span></div>
+    <div class="nav">
+    		<input id="input" type="text" style="margin-left: 2.5%;" placeholder="Search...">
+        <div class="clearer"><span></span></div>
+    	</div>
+
+    <div class="stripes"><span></span></div>
+
+    <div class="main">
+
+      <div class="left">
+        <div class="content" align="left">
+
+          <div id="coll">
+            <hr/>
+            <script>
+
+              var input = document.getElementById("input");
+              input.addEventListener("keyup", function(event) {
+                if (event.keyCode === 13) {
+                  event.preventDefault();
+                  fetch("http://"+location.host+"/api",{
+                      method: "POST",
+                      headers: {
+                        "Content-Type":"application/json"
+                      },
+                      body: JSON.stringify({"$match": {"message": {"$regex": ".*" + input.value + ".*"}}})
+                    })
+                  .then((response) => {
+                    return response.json();
+                  })
+                  .then((coll) => {
+                    console.log(coll)
+                    var element = document.getElementById("coll");
+                    element.innerHTML = "";
+                    for (i=0; i<coll.length; i++){
+                      var node = document.createElement("p");
+                      node.innerHTML = "<h3>"+(i+1)+"."+"</h3>";
+                      node.innerHTML += "<b>Author: </b> " + coll[i].author;
+                      node.innerHTML += "<br/>";
+                      node.innerHTML += "<b>Message: </b>" + coll[i].message;
+                      node.innerHTML += "<br/><br/><hr/>";
+                      element.appendChild(node);
+                    }
+                  });
+                }
+              });
+            </script>
+          </div>
+        </div>
+      </div>
+
+      <div class="clearer"><span></span></div>
+    </div>
+    <div class="footer">
+      <div class="bottom">
+        <div class="clearer"></div>
+      </div>
+    </div>
+    </div>
+  </body>
+</html>

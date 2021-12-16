@@ -1,0 +1,6 @@
+FROM mongo
+
+COPY lorem.json /lorem.json
+COPY flag.json /flag.json
+
+CMD while true; do mongoimport --drop --host mongodb --db reach-humanity --collection messages --type json --file /lorem.json --jsonArray && mongoimport --drop --host mongodb --db reach-humanity --collection flag --type json --file /flag.json --jsonArray; sleep 10; done

@@ -1,0 +1,16 @@
+version: '3.2'
+services:
+  flask:
+    build: ./backend
+    container_name: backend-ssti
+    restart: on-failure
+    read_only: true
+    volumes:
+      - ./backend:/backend
+    ports:
+      - "8101:5000"
+    command: python main.py
+    deploy:
+      resources:
+        limits:
+          memory: 4G
